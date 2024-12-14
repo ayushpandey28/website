@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undergraduate Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    nav ul li a {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #2575fc, #6a11cb), url('hero-image.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border: 2px solid #fff;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .hero a:hover {
+      background: #fff;
+      color: #6a11cb;
+    }
+
+    /* About Section */
+    .section {
+      padding: 4rem 2rem;
+    }
+
+    #about {
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    #about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #2575fc;
+    }
+
+    #about img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #2575fc;
+    }
+
+    #about p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    #about .details {
+      margin-top: 2rem;
+    }
+
+    #about .details p {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    #about .skills {
+      margin-top: 2rem;
+    }
+
+    #about .skills h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #6a11cb;
+    }
+
+    #about .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #about .skills ul li {
+      background: #eaeaea;
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Projects Section */
+    #projects {
+      background: #fff;
+    }
+
+    #projects h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #6a11cb;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project {
+      background: #f9f9f9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .project img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-content {
+      padding: 1rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-content p {
+      font-size: 1rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #contact form input, #contact form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    #contact form button {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 25px;
+      background: #fff;
+      color: #2575fc;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    #contact form button:hover {
+      background: #f9f9f9;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Welcome to My Portfolio</h1>
+      <p>Explore my work, projects, and journey as an aspiring professional.</p>
+      <a href="#projects">View Projects</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <img src="photo.jpg" alt="My Picture">
+    <p>I am an enthusiastic undergraduate student specializing in [Your Major]. Passionate about [your interests or skills], I enjoy building creative solutions to real-world problems.</p>
+    <div class="details">
+      <p><strong>Name : </strong> Ayush Pandey</p>
+      <p><strong>Course  : </strong>B.Tech.</p>
+      <p><strong>Branch:</strong>Coumputer Science And Engineering </p>
+      <p><strong>Duration Of Course : </strong>4 Years</p>
+      <p></p>
+    </div>
+    <div class="skills">
+      <h3>My Skills</h3>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Problem Solving</li>
+        <li>Teamwork</li>
+        <li>C(Programming Language)</li>
+        <li>Self-Management</li>
+        <li>Analytic Skills</li>
+        <li>Leadership</li>
+        <li>Time Management</li>
+
+      </ul>
+    </div>
+  </section>
+
+  
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <form action="https://example.com/contact" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
